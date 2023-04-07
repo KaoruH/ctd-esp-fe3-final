@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useParams } from 'react-router-dom';
 import { ContextGlobal } from "../Components/utils/global.context"
+import styles from "../Styles/Routes.module.css"
 
 //Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
 
@@ -18,7 +19,7 @@ const Detail = () => {
   console.log(id)
 
   return (
-    <div style={{ background: theme.background, color: theme.font }}>
+    <div className={styles[theme]}>
       <h1>Detail Dentist id </h1>
       <p>Name: {dentist.name}</p>
       <p>Email: {dentist.email}</p>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from "../Styles/Form.module.css"
 
 const Form = () => {
 
@@ -58,13 +59,13 @@ const Form = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label  >Nombre completo:</label>
-        <input type="text" name="fullName" placeholder='Full Name' id='fullName' value={formData.fullName} onChange={handleOnChange} />
-        <label f>Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email" value={formData.email} onChange={handleOnChange} />
-        <input type="submit" value="Submit" />
+        <label  htmlFor="fullName" className={styles.label}>Nombre completo:</label>
+        <input type="text" name="fullName" placeholder='Full Name' id='fullName' className={styles.input} value={formData.fullName} onChange={handleOnChange} />
+        <label htmlFor="email" className={styles.label}>Email:</label>
+        <input type="email" name="email" id="email" placeholder="Email" className={styles.input} value={formData.email} onChange={handleOnChange} />
+        <input type="submit" value="Submit" className={styles.button}/>
       </form>
-      <div>{formData.alert}</div>
+      <div className={styles.alert}>{formData.alert}</div>
     </div>
   );
 };

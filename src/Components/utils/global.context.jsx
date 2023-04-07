@@ -1,17 +1,7 @@
 import { createContext, useEffect, useReducer, useMemo } from "react";
 
-export const themes = {
-  light: {
-    font: 'black',
-    background: 'white'
-  },
-  dark: {
-    font: 'white',
-    background: 'black'
-  }
-};
 
-export const initialState = { theme: themes.light, data: [], favorites: [], error: null }
+export const initialState = { theme: "", data: [], favorites: [], error: null }
 
 export const ContextGlobal = createContext(undefined);
 
@@ -19,7 +9,7 @@ export const contextReducer = (state, action) => {
   switch (action.type) {
 
     case "TOGGLE_THEME":
-      return { ...state, theme: state.theme === themes.light ? themes.dark : themes.light };
+      return { ...state, theme: state.theme === "light" ? "dark" : "light" };
 
     case 'FETCH_DATA':
       return { ...state, data: action.payload };
@@ -37,6 +27,10 @@ export const contextReducer = (state, action) => {
     case "RESET_FAVORITES":
       return { ...state, favorites: [], error: null };
 
+    case "GET_FAVORITES":
+      const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+      return { ...state, favorites, error: null };
+
     case "SET_ERROR":
       return { ...state, error: action.payload };
 
@@ -44,7 +38,6 @@ export const contextReducer = (state, action) => {
       return state;
   }
 };
-
 
 export const ContextProvider = ({ children }) => {
 
@@ -99,6 +92,7 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     fetchData();
+    dispatch({ type: "GET_FAVORITES" });
   }, []);
 
   return (
