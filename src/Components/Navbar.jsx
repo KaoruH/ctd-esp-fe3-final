@@ -13,7 +13,7 @@ const Navbar = () => {
       <Link to={"/"} className={styles.link}>Home</Link>
       <Link to={"/favs"} className={styles.link}>Favorites</Link>
       <Link to={"/contact"} className={styles.link}>Contact Us</Link>
-      <button className={styles.button + styles[theme]} onClick={toggleTheme}>Change theme</button>
+      <button className={styles["button" + theme]} onClick={toggleTheme}>Change theme</button>
     </nav>
   )
 }
