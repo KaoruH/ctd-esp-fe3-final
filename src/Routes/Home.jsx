@@ -3,8 +3,6 @@ import { ContextGlobal } from "../Components/utils/global.context"
 import Card from '../Components/Card'
 import styles from "../Styles/Routes.module.css"
 
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
-
 const Home = () => {
   const { state } = useContext(ContextGlobal).providerValue;
   const { theme, data } = state;

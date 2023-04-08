@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { ContextGlobal } from "./utils/global.context";
 import { Link } from "react-router-dom";
+import styles from "../Styles/Card.module.css"
 
 const Card = ({ name, username, id }) => {
   const { state, addFav, removeFav } = useContext(ContextGlobal).providerValue;
@@ -14,10 +15,9 @@ const Card = ({ name, username, id }) => {
     removeFav({ id });
   };
 
-
   return (
 
-    <div className="card" style={{ color: theme.font, backgroundColor: theme.background }}>
+    <div className={styles["card" + theme]}>
       <Link to={`/dentist/${id}`} >
         <h3>{name}</h3>
         <p>{username}</p>
@@ -25,9 +25,9 @@ const Card = ({ name, username, id }) => {
         {error && <p>{error}</p>}
       </Link>
       {favorites.find((fav) => fav.id === id) ? (
-        <button onClick={handleRemoveFav} className="favButton">Remove fav </button>
+        <button onClick={handleRemoveFav} className={styles["favButton" + theme]}>Remove fav </button>
       ) : (
-        <button onClick={handleAddFav} className="favButton">Add fav</button>
+        <button onClick={handleAddFav} className={styles["favButton" + theme]}>Add fav</button>
       )}
     </div>
   );

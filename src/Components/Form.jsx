@@ -49,21 +49,20 @@ const Form = () => {
   }
 
   const validEmail = (email) => {
-    const withOutSpace = email.trim();
-  
-    return (withOutSpace.includes("@"))
-  
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    return regex.test(email);
   }
 
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <label  htmlFor="fullName" className={styles.label}>Nombre completo:</label>
+        <label htmlFor="fullName" className={styles.label}>Nombre completo:</label>
         <input type="text" name="fullName" placeholder='Full Name' id='fullName' className={styles.input} value={formData.fullName} onChange={handleOnChange} />
         <label htmlFor="email" className={styles.label}>Email:</label>
-        <input type="email" name="email" id="email" placeholder="Email" className={styles.input} value={formData.email} onChange={handleOnChange} />
-        <input type="submit" value="Submit" className={styles.button}/>
+        <input type="text" name="email" id="email" placeholder="Email" className={styles.input} value={formData.email} onChange={handleOnChange} />
+        <input type="submit" value="Submit" className={styles.button} />
       </form>
       <div className={styles.alert}>{formData.alert}</div>
     </div>

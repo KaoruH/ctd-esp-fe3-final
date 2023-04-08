@@ -1,7 +1,7 @@
 import { createContext, useEffect, useReducer, useMemo } from "react";
 
 
-export const initialState = { theme: "", data: [], favorites: [], error: null }
+export const initialState = { theme: "light", data: [], favorites: [], error: null }
 
 export const ContextGlobal = createContext(undefined);
 
