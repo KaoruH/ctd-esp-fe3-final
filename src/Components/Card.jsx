@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { ContextGlobal } from "./utils/global.context";
 import { Link } from "react-router-dom";
 import styles from "../Styles/Card.module.css"
+import avatar from "../img/doctor.jpg"
 
 const Card = ({ name, username, id }) => {
   const { state, addFav, removeFav } = useContext(ContextGlobal).providerValue;
@@ -19,6 +20,7 @@ const Card = ({ name, username, id }) => {
 
     <div className={styles["card" + theme]}>
       <Link to={`/dentist/${id}`} >
+        <img src={avatar} alt="Doctor"></img>
         <h3>{name}</h3>
         <p>{username}</p>
         <p>ID: {id}</p>

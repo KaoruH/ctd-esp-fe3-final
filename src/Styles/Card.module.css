@@ -2,12 +2,19 @@
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
-  width: 190px;
-  height: 190px;
+  width: 16vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+}
+
+.cardlight img, .carddark img {
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 10px;
 }
 
 .cardlight {
@@ -17,7 +24,7 @@
 
 .favButtonlight, .favButtondark {
   border: none;
-  padding: 10px;
+  padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
@@ -32,14 +39,14 @@
   
 .cardlight h3, .carddark h3 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.4vw;
   font-weight: bold;
   text-align: center;
 }
   
 .cardlight p, .carddark p {
   margin: 0;
-  font-size: 1.2rem;
+  font-size: 1.2vw;
   text-align: center;
 }
   
